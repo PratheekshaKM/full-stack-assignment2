@@ -252,89 +252,75 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  return (
-    <div className={`App ${isKeyboardNavigating ? 'keyboard-navigating' : ''}`}>
-      <header className="App-header">
-        <h1>FSD ASSIGNMENT II</h1>
-      </header>
-      <div className="container">
-        {activeQuestion ? (
+  const renderContent = () => {
+    if (activeQuestion) {
+      const QuestionComponent = QuestionComponents.find(q => q.id === activeQuestion)?.component;
+      if (QuestionComponent) {
+        return (
           <div className="answer-container">
             <div className="answer-box">
               <div className="question-header">
-                <button 
-                  className="nav-button home-button" 
-                  onClick={() => {
-                    setIsKeyboardNavigating(false);
-                    document.body.style.cursor = 'auto';
-                    setActiveQuestion(null);
-                    window.scrollTo(0, 0);
-                  }}
-                  title="Return to questions list (Escape key)"
-                >
-                  <span className="nav-icon">⌂</span> Home
+                <button className="home-button" onClick={() => toggleQuestion(null)}>
+                  ← Back to Questions
                 </button>
                 <h2 className="question-title">
                   <span className="question-number">{activeQuestion}</span>
                   {QuestionComponents.find(q => q.id === activeQuestion)?.question}
                 </h2>
               </div>
-              <div className="answer-content">
-                {QuestionComponents.find(q => q.id === activeQuestion)?.component && (
-                  <React.Fragment>
-                    <p className="answer-label"><strong>ANSWER:</strong></p>
-                    <div className="answer-details">
-                      {React.createElement(
-                        QuestionComponents.find(q => q.id === activeQuestion).component
-                      )}
-                    </div>
-                    <div className="navigation-controls">
-                      {activeQuestion > 1 && (
-                        <button 
-                          className="nav-button prev-button" 
-                          onClick={() => toggleQuestion(activeQuestion - 1)}
-                          title="Previous question (Left Arrow key)"
-                        >
-                          <span className="nav-icon">←</span> Previous
-                        </button>
-                      )}
-                      {activeQuestion < QuestionComponents.length && (
-                        <button 
-                          className="nav-button next-button" 
-                          onClick={() => toggleQuestion(activeQuestion + 1)}
-                          title="Next question (Right Arrow key)"
-                        >
-                          Next <span className="nav-icon">→</span>
-                        </button>
-                      )}
-                    </div>
-                    <div className="keyboard-hint">
-                      <span>Keyboard shortcuts: <kbd>←</kbd> Previous | <kbd>→</kbd> Next | <kbd>↑</kbd> Scroll Up | <kbd>↓</kbd> Scroll Down | <kbd>Esc</kbd> Home</span>
-                    </div>
-                  </React.Fragment>
+              <QuestionComponent />
+              <div className="navigation-controls">
+                {activeQuestion > 1 && (
+                  <button className="nav-button prev-button" onClick={() => toggleQuestion(activeQuestion - 1)}>
+                    <span className="nav-icon">←</span> Previous
+                  </button>
+                )}
+                {activeQuestion < QuestionComponents.length && (
+                  <button className="nav-button next-button" onClick={() => toggleQuestion(activeQuestion + 1)}>
+                    Next <span className="nav-icon">→</span>
+                  </button>
                 )}
               </div>
-            </div>
-          </div>
-        ) : (
-          <div className="questions-grid">
-            <div className="instructions-box">
-              <p className="instructions-text">Click on any question to view detailed explanation with code examples.</p>
-            </div>
-            {QuestionComponents.map((item) => (
-              <div 
-                className="question-plate" 
-                key={item.id}
-                onClick={() => toggleQuestion(item.id)}
-              >
-                <div className="question-content">
-                  <h3 data-number={item.id}>{item.question}</h3>
-                </div>
+              <div className="keyboard-hint">
+                Use <kbd>←</kbd> and <kbd>→</kbd> to navigate between questions
               </div>
-            ))}
+            </div>
           </div>
-        )}
+        );
+      }
+    }
+
+    return (
+      <div className="questions-grid">
+        <div className="instructions-box">
+          <p className="instructions-text">
+            Click on a question to view its answer. Use keyboard navigation (←/→) to move between questions.
+          </p>
+        </div>
+        {QuestionComponents.map(({ id, question }) => (
+          <div key={id} className="question-plate" onClick={() => toggleQuestion(id)}>
+            <div className="question-content">
+              <h3 data-number={id}>{question}</h3>
+            </div>
+          </div>
+        ))}
       </div>
+    );
+  };
+
+  return (
+    <div className={`App ${isKeyboardNavigating ? 'keyboard-navigating' : ''}`}>
+      <header className="App-header">
+        <h1>Full Stack Development - Assignment 2</h1>
+      </header>
+      <main className="container">
+        {renderContent()}
+      </main>
+      <footer>
+        <div className="footer-text">
+          Your Name - Your USN
+        </div>
+      </footer>
     </div>
   );
 }
