@@ -232,7 +232,6 @@ function App() {
       }, 1000);
     }
     
-    // Clean up
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -240,7 +239,6 @@ function App() {
         clearTimeout(keyboardNavigationTimeout);
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeQuestion, isKeyboardNavigating]);
 
   const toggleQuestion = (id) => {
@@ -248,7 +246,6 @@ function App() {
     setIsKeyboardNavigating(false);
     document.body.style.cursor = 'auto';
     setActiveQuestion(id);
-    // Scroll to top immediately when toggling questions (instant scroll)
     window.scrollTo(0, 0);
   };
 
@@ -318,7 +315,7 @@ function App() {
       </main>
       <footer>
         <div className="footer-text">
-          Prtheeksha K M - 1MJ22IS080
+          Pratheeksha K M - 1MJ22IS080
         </div>
       </footer>
     </div>
