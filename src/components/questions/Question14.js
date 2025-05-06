@@ -12,7 +12,6 @@ function Question14() {
 {`import React from 'react';
 
 function HighScoreStudents({ students }) {
-  // Filter students who scored more than 50 marks
   const highScorers = students.filter(student => student.marks > 50);
   
   return (
@@ -41,9 +40,7 @@ function HighScoreStudents({ students }) {
   );
 }
 
-// Example usage
 function App() {
-  // Sample student data
   const studentsList = [
     { id: 1, name: 'John Doe', marks: 78 },
     { id: 2, name: 'Jane Smith', marks: 92 },
@@ -69,7 +66,7 @@ export default HighScoreStudents;`}
       
       <ul>
         <li>It accepts a <code>students</code> prop, which is an array of student objects.</li>
-        <li>It uses the <code>filter()</code> method to create a new array containing only students with marks > 50.</li>
+        <li>It uses the <code>filter()</code> method to create a new array containing only students with marks greater than 50.</li>
         <li>It renders different content based on whether any students meet the criteria.</li>
         <li>For each high-scoring student, it displays their name and score.</li>
         <li>The <code>key</code> prop is used in the list to help React identify which items have changed.</li>

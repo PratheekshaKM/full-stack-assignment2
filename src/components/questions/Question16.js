@@ -12,44 +12,33 @@ function Question16() {
 {`import React, { useState } from 'react';
 
 function TodoList() {
-  // State for the list of todos
   const [todos, setTodos] = useState([]);
-  
-  // State for the input field
   const [inputValue, setInputValue] = useState('');
   
-  // Handle input change
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
   
-  // Add a new todo
   const addTodo = () => {
-    // Don't add empty todos
     if (inputValue.trim() === '') return;
     
-    // Create a new todo with a unique ID
     const newTodo = {
       id: Date.now(),
       text: inputValue,
       completed: false
     };
     
-    // Add the new todo to the list
     setTodos([...todos, newTodo]);
     
-    // Clear the input field
     setInputValue('');
   };
   
-  // Delete a todo
   const deleteTodo = (id) => {
     // Filter out the todo with the matching id
     const updatedTodos = todos.filter(todo => todo.id !== id);
     setTodos(updatedTodos);
   };
   
-  // Toggle a todo's completed status
   const toggleComplete = (id) => {
     const updatedTodos = todos.map(todo => {
       if (todo.id === id) {
@@ -61,7 +50,6 @@ function TodoList() {
     setTodos(updatedTodos);
   };
   
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     addTodo();

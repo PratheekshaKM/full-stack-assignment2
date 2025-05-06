@@ -12,10 +12,8 @@ function Question19() {
 {`import React, { useState } from 'react';
 
 function ProductCart() {
-  // State for cart count
   const [cartCount, setCartCount] = useState(0);
   
-  // State for products
   const [products] = useState([
     { id: 1, name: 'Smartphone', price: 699.99, image: 'https://via.placeholder.com/150' },
     { id: 2, name: 'Laptop', price: 1299.99, image: 'https://via.placeholder.com/150' },

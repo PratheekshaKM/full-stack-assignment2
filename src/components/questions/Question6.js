@@ -12,15 +12,11 @@ function Question6() {
 {`import React, { useState } from 'react';
 
 function ColorChanger() {
-  // State to track the current background color
   const [backgroundColor, setBackgroundColor] = useState('white');
 
-  // Function to change the background color
   const changeColor = () => {
-    // Array of colors to choose from
     const colors = ['red', 'blue', 'green', 'yellow', 'purple', 'orange'];
     
-    // Get a random color different from the current one
     let newColor;
     do {
       newColor = colors[Math.floor(Math.random() * colors.length)];

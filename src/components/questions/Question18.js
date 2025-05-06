@@ -12,23 +12,18 @@ function Question18() {
 {`import React, { useState, useEffect } from 'react';
 
 function Clock() {
-  // State to store the current date and time
   const [dateTime, setDateTime] = useState(new Date());
   
-  // Update the date and time every second using useEffect
   useEffect(() => {
-    // Set up an interval to update the time every second
     const intervalId = setInterval(() => {
       setDateTime(new Date());
     }, 1000);
     
-    // Clean up the interval when the component unmounts
     return () => {
       clearInterval(intervalId);
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
   
-  // Format the date as a string
   const formatDate = (date) => {
     const options = { 
       weekday: 'long', 
@@ -39,7 +34,6 @@ function Clock() {
     return date.toLocaleDateString(undefined, options);
   };
   
-  // Format the time as a string with hours, minutes, and seconds
   const formatTime = (date) => {
     const options = { 
       hour: '2-digit', 

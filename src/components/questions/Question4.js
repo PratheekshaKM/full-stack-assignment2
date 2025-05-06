@@ -21,7 +21,6 @@ function Student(props) {
   );
 }
 
-// Usage example
 function App() {
   return (
     <div>

@@ -13,7 +13,6 @@ function Question10() {
 import { useLocation } from 'react-router-dom';
 
 function CurrentPath() {
-  // useLocation hook returns the current location object
   const location = useLocation();
   
   return (

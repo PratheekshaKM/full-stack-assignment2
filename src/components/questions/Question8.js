@@ -12,19 +12,15 @@ function Question8() {
 {`import React, { useState } from 'react';
 
 function ContactForm() {
-  // State for form inputs
   const [formData, setFormData] = useState({
     name: '',
     email: ''
   });
   
-  // State to track if form has been submitted
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // State to store submitted data
   const [submittedData, setSubmittedData] = useState(null);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -33,7 +29,6 @@ function ContactForm() {
     });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedData({...formData});

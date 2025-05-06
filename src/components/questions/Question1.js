@@ -12,12 +12,11 @@ function Question1() {
       <h3>Example of Props:</h3>
       <pre>
         <code className="language-jsx">
-{`// Parent component
+{`
 function ParentComponent() {
   return <ChildComponent name="John" age={25} />;
 }
 
-// Child component
 function ChildComponent(props) {
   return (
     <div>
@@ -33,7 +32,6 @@ function ChildComponent(props) {
       <pre>
         <code className="language-jsx">
 {`function Counter() {
-  // useState hook to create state
   const [count, setCount] = React.useState(0);
 
   return (

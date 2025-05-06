@@ -12,17 +12,14 @@ function Question5() {
 {`import React, { useState } from 'react';
 
 function VotingApp() {
-  // State to track if the user has voted
   const [hasVoted, setHasVoted] = useState(false);
   
-  // State to track votes for each candidate
   const [votes, setVotes] = useState({
     candidate1: 0,
     candidate2: 0,
     candidate3: 0
   });
 
-  // Function to handle voting
   const handleVote = (candidate) => {
     if (!hasVoted) {
       setVotes({

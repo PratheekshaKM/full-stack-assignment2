@@ -12,19 +12,14 @@ function Question17() {
 {`import React, { useState, useEffect } from 'react';
 
 function RandomJoke() {
-  // State to store the joke
   const [joke, setJoke] = useState({
     setup: '',
     punchline: ''
   });
   
-  // State to track loading status
   const [isLoading, setIsLoading] = useState(true);
   
-  // State to track errors
   const [error, setError] = useState(null);
-  
-  // State to control showing the punchline
   const [showPunchline, setShowPunchline] = useState(false);
   
   // Function to fetch a random joke
@@ -53,7 +48,6 @@ function RandomJoke() {
     }
   };
   
-  // Fetch a joke when the component mounts
   useEffect(() => {
     fetchRandomJoke();
   }, []);

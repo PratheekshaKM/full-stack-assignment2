@@ -12,14 +12,11 @@ function Question23() {
 {`import React, { useState } from 'react';
 
 function PostRating() {
-  // State for likes and dislikes
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   
-  // State to track user's vote (null, 'like', or 'dislike')
   const [userVote, setUserVote] = useState(null);
   
-  // Handle like button click
   const handleLike = () => {
     if (userVote === 'like') {
       // User is un-liking
@@ -28,7 +25,6 @@ function PostRating() {
     } else {
       // User is liking
       if (userVote === 'dislike') {
-        // If user previously disliked, remove the dislike
         setDislikes(dislikes - 1);
       }
       setLikes(likes + 1);
@@ -36,16 +32,12 @@ function PostRating() {
     }
   };
   
-  // Handle dislike button click
   const handleDislike = () => {
     if (userVote === 'dislike') {
-      // User is un-disliking
       setDislikes(dislikes - 1);
       setUserVote(null);
     } else {
-      // User is disliking
       if (userVote === 'like') {
-        // If user previously liked, remove the like
         setLikes(likes - 1);
       }
       setDislikes(dislikes + 1);

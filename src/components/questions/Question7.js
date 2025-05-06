@@ -12,7 +12,6 @@ function Question7() {
 {`import React from 'react';
 
 function ProductList() {
-  // Sample product data
   const products = [
     { id: 1, name: 'Laptop', price: 999.99 },
     { id: 2, name: 'Smartphone', price: 699.99 },
@@ -21,7 +20,6 @@ function ProductList() {
     { id: 5, name: 'Camera', price: 549.99 }
   ];
 
-  // Function to handle buy button click
   const handleBuy = (productName) => {
     alert(\`You've purchased \${productName}!\`);
   };

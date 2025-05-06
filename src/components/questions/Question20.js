@@ -12,17 +12,14 @@ function Question20() {
 {`import React, { useState } from 'react';
 
 function FeedbackForm() {
-  // State for form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     feedback: ''
   });
   
-  // State to track if form has been submitted
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -31,18 +28,13 @@ function FeedbackForm() {
     });
   };
   
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Here you would typically send the data to a server
-    // For this example, we'll just set isSubmitted to true
     console.log('Form submitted:', formData);
     
-    // Show confirmation message
     setIsSubmitted(true);
     
-    // Reset form after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({

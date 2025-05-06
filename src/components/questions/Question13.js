@@ -14,38 +14,30 @@ function Question13() {
 function AutoCounter() {
   // State to track the counter value
   const [count, setCount] = useState(0);
-  
-  // State to track if the counter is active
   const [isActive, setIsActive] = useState(false);
   
-  // useEffect to handle the automatic counting
   useEffect(() => {
     let interval = null;
     
-    // Only set up the interval if the counter is active and less than 10
     if (isActive && count < 10) {
       interval = setInterval(() => {
         setCount(prevCount => prevCount + 1);
       }, 1000);
     } else if (count >= 10) {
-      // When we reach 10, stop the counter
       setIsActive(false);
     }
     
-    // Clean up the interval on component unmount or when dependencies change
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isActive, count]); // Re-run effect when isActive or count changes
+  }, [isActive, count]); 
   
   // Function to start the counter
   const startCounter = () => {
-    // Reset to 0 and activate
     setCount(0);
     setIsActive(true);
   };
   
-  // Function to pause/resume the counter
   const toggleCounter = () => {
     setIsActive(!isActive);
   };

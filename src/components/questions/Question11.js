@@ -12,7 +12,6 @@ function Question11() {
 {`import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-// Simple page components
 function Home() {
   return (
     <div className="page">
@@ -40,7 +39,6 @@ function Contact() {
   );
 }
 
-// Navigation component
 function Navbar() {
   return (
     <nav className="navbar">
@@ -62,7 +60,6 @@ function Navbar() {
   );
 }
 
-// Main App component
 function App() {
   return (
     <BrowserRouter>

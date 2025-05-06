@@ -12,7 +12,6 @@ function Question21() {
 {`import React, { useState } from 'react';
 
 function CountryDropdown() {
-  // State to store the selected country
   const [selectedCountry, setSelectedCountry] = useState('');
   
   // List of countries
@@ -29,7 +28,6 @@ function CountryDropdown() {
     'South Africa'
   ];
   
-  // Handle dropdown change
   const handleCountryChange = (e) => {
     setSelectedCountry(e.target.value);
   };

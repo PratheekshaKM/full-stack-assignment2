@@ -12,7 +12,6 @@ function Question2() {
       <pre>
         <code className="language-jsx">
 {`function NameDisplay() {
-  // useState hook for managing state
   const [name, setName] = React.useState('');
 
   return (
@@ -36,16 +35,13 @@ function Question2() {
 {`function Timer() {
   const [seconds, setSeconds] = React.useState(0);
 
-  // useEffect runs after render and for side effects
   React.useEffect(() => {
-    // Set up timer
     const interval = setInterval(() => {
       setSeconds(seconds => seconds + 1);
     }, 1000);
     
-    // Clean up function (runs when component unmounts)
     return () => clearInterval(interval);
-  }, []); // Empty dependency array means it only runs once on mount
+  }, []);
 
   return <p>Seconds: {seconds}</p>;
 }`}

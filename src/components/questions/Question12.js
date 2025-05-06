@@ -12,10 +12,8 @@ function Question12() {
 {`import React, { useState } from 'react';
 
 function LoginStatus() {
-  // State to track if user is logged in
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
-  // Function to toggle login status
   const toggleLogin = () => {
     setIsLoggedIn(!isLoggedIn);
   };
@@ -24,7 +22,7 @@ function LoginStatus() {
     <div className="login-status">
       <h2>User Authentication Example</h2>
       
-      {/* Conditional rendering based on login status */}
+      {}
       <div className="message-box">
         {isLoggedIn ? (
           <h3 className="welcome-message">Welcome!</h3>
@@ -33,7 +31,6 @@ function LoginStatus() {
         )}
       </div>
       
-      {/* Button to toggle login status */}
       <button 
         onClick={toggleLogin}
         className={isLoggedIn ? "logout-btn" : "login-btn"}
@@ -41,7 +38,6 @@ function LoginStatus() {
         {isLoggedIn ? "Logout" : "Login"}
       </button>
       
-      {/* Additional content that depends on login status */}
       {isLoggedIn && (
         <div className="user-dashboard">
           <p>You now have access to the dashboard.</p>

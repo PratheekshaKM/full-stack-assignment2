@@ -318,7 +318,7 @@ function App() {
       </main>
       <footer>
         <div className="footer-text">
-          Your Name - Your USN
+          Prtheeksha K M - 1MJ22IS080
         </div>
       </footer>
     </div>

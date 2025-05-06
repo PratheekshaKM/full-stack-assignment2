@@ -12,7 +12,6 @@ function Question15() {
 {`import React, { useState } from 'react';
 
 function ToggleVisibility() {
-  // State to track visibility of the paragraph
   const [isVisible, setIsVisible] = useState(false);
   
   // Function to toggle visibility

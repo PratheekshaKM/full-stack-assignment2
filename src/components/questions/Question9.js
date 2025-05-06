@@ -12,21 +12,16 @@ function Question9() {
 {`import React, { useState, useEffect } from 'react';
 
 function MountMessage() {
-  // State to store the mount message
   const [message, setMessage] = useState('');
   
-  // useEffect with empty dependency array runs only once after initial render
   useEffect(() => {
     setMessage('Component Mounted');
-    
-    // You could also log to console
     console.log('Component Mounted');
     
-    // Optional cleanup function (runs when component unmounts)
     return () => {
       console.log('Component Unmounted');
     };
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []);
   
   return (
     <div className="mount-message">

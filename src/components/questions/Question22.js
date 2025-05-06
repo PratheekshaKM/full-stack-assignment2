@@ -12,16 +12,13 @@ function Question22() {
 {`import React, { useState } from 'react';
 
 function TemperatureConverter() {
-  // State for temperature values
   const [celsius, setCelsius] = useState('');
   const [fahrenheit, setFahrenheit] = useState('');
   
-  // Handle Celsius input change
   const handleCelsiusChange = (e) => {
     const value = e.target.value;
     setCelsius(value);
     
-    // Convert to Fahrenheit if input is a valid number
     if (value === '') {
       setFahrenheit('');
     } else {
@@ -33,12 +30,10 @@ function TemperatureConverter() {
     }
   };
   
-  // Handle Fahrenheit input change
   const handleFahrenheitChange = (e) => {
     const value = e.target.value;
     setFahrenheit(value);
     
-    // Convert to Celsius if input is a valid number
     if (value === '') {
       setCelsius('');
     } else {
